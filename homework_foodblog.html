@@ -91,8 +91,9 @@
         padding: 2em;
         color: white;
         border-radius: 2em;
-        width: 50%;
-        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        float: left;
       }
     </style>
   </head>
@@ -113,17 +114,18 @@
 
         <section id="blogposts">
           <div class="post" v-for="(post, index) in allPosts">
-            <img
-              class="chili"
-              v-bind:src="'profile.png'"
-              v-on:click="displayLevel(index)"
-            />
+            <div>
+              <img
+                class="chili"
+                v-bind:src="'profile.png'"
+                v-on:click="displayLevel(index)"
+              />
 
-            <span class="author">{{post.author}}</span>
-            <span class="date">{{post.date}}</span>
-            <span class="reply">REPLY</span>
-            <p>{{post.desc}}</p>
-
+              <span class="author">{{post.author}}</span>
+              <span class="date">{{post.date}}</span>
+              <span class="reply">REPLY</span>
+              <p>{{post.desc}}</p>
+            </div>
             <div
               class="popup"
               v-show="post.showProfile"
