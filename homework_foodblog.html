@@ -95,6 +95,12 @@
         margin-right: auto;
         float: left;
       }
+      .xbutton {
+        float: inline-end;
+        color: white;
+        background: none;
+       
+      }
     </style>
   </head>
   <body>
@@ -131,10 +137,11 @@
               v-show="post.showProfile"
               v-if="post.showProfile"
             >
-              <button v-on:click="post.showProfile=false">X</button>
+              <button class="xbutton" v-on:click="post.showProfile=false">X</button>
               <p>{{post.author}}</p>
               <p>Foodie Level: {{ post.foodieLevel }}</p>
               <p>Bio: {{ post.Bio }}</p>
+              <button class="close" v-on:click="post.showProfile=false">Close</button>
             </div>
           </div>
         </section>
