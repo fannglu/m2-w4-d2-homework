@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Food Blog</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../stylesheets/styles.css" />
+  </head>
+  <body>
+    <aside id="leftside"></aside>
+    <aside id="rightside"></aside>
+    <div id="container">
+      <header>
+        <heading></heading>
+      </header>
+
+      <main>
+        <aside id="photos">
+          <img
+            src="../images/chili.jpg"
+            alt="White Chicken Chili"
+            width="180"
+          />
+        </aside>
+
+        <comments></comments>
+
+        <section id="blogposts">
+          <div class="post" v-for="(post, index) in allPosts">
+            <div>
+              <img
+                class="chili"
+                v-bind:src="'../images/profile.png'"
+                v-on:click="displayLevel(index)"
+              />
+
+              <span class="author">{{post.author}}</span>
+              <span class="date">{{post.date}}</span>
+              <span class="reply">REPLY</span>
+              <p>{{post.desc}}</p>
+            </div>
+            <div
+              class="popup"
+              v-show="post.showProfile"
+              v-if="post.showProfile"
+            >
+              <button class="xbutton" v-on:click="post.showProfile=false">
+                X
+              </button>
+              <p>{{post.author}}</p>
+              <p>Foodie Level: {{ post.foodieLevel }}</p>
+              <p>Bio: {{ post.Bio }}</p>
+              <button class="close" v-on:click="post.showProfile=false">
+                Close
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>&copy; Copyright FOOD BLOG</footer>
+    </div>
+  </body>
+  <!-- add CDN link  -->
+  <script src="../javascripts/vue.js"></script>
+</html>
